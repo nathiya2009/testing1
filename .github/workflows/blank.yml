@@ -24,9 +24,9 @@ jobs:
     uses: ./.github/workflows/test.yml
     with: 
       environment: ${{ github.event.inputs.environment }}
-
   test:
     name: Run Tests
+    if: ${{ github.event.inputs.run_tests }} == 'true'
     needs: build
     runs-on: ubuntu-latest
     steps:
