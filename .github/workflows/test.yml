@@ -1,0 +1,17 @@
+name: HealthPoint Deploy Template
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a multi-line script
+        run: |
+         echo "Environment: ${{ inputs.environment }}"
+  
