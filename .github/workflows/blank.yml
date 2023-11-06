@@ -12,6 +12,11 @@ on:
         - dev
         - test
         - prod
+      run_tests:
+        type: boolean
+        description: Do you want to run tests?
+        required: true
+        default: true     
 
 jobs:
   build:
@@ -19,4 +24,12 @@ jobs:
     uses: ./.github/workflows/test.yml
     with: 
       environment: ${{ github.event.inputs.environment }}
-    
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a multi-line script
+        run: |
+         echo "Is Run Test?: ${{ inputs.run_tests }}"
+  
