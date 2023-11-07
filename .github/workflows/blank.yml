@@ -23,7 +23,7 @@ jobs:
     name: Call Workflow Template
     uses: ./.github/workflows/test.yml
     with: 
-      environment: ${{ github.event.inputs.branch }}
+      environment: $GITHUB_REF
   test:
     name: Run Tests
     if: ${{ github.event.inputs.run_tests == 'true'}}
